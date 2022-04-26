@@ -133,8 +133,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGES.rst COPYRIGHT.txt LICENSE.txt README.rst
 %{py_sitescriptdir}/zope/location
-%{py_sitescriptdir}/zope.location-*.egg-info
-%{py_sitescriptdir}/zope.location-*-nspkg.pth
+%{py_sitescriptdir}/zope.location-%{version}-py*.egg-info
+%{py_sitescriptdir}/zope.location-%{version}-py*-nspkg.pth
 %endif
 
 %if %{with python3}
@@ -142,12 +142,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGES.rst COPYRIGHT.txt LICENSE.txt README.rst
 %{py3_sitescriptdir}/zope/location
-%{py3_sitescriptdir}/zope.location-*.egg-info
-%{py3_sitescriptdir}/zope.location-*-nspkg.pth
+%{py3_sitescriptdir}/zope.location-%{version}-py*.egg-info
+%{py3_sitescriptdir}/zope.location-%{version}-py*-nspkg.pth
 %endif
 
 %if %{with doc}
 %files apidocs
 %defattr(644,root,root,755)
-%doc docs/_build/html/{_modules,_static,*.html,*.js}
+%doc docs/_build/html/{_static,*.html,*.js}
 %endif

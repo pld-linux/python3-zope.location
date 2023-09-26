@@ -9,12 +9,13 @@
 Summary:	Zope location module
 Summary(pl.UTF-8):	Moduł Zope location
 Name:		python-%{module}
-Version:	4.2
+# keep 4.x here for python2 support
+Version:	4.3
 Release:	1
 License:	ZPL v2.1
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/z/zope.location/zope.location-%{version}.tar.gz
-# Source0-md5:	aeffe240cef8acbe1e61700ccdb174bb
+# Source0-md5:	cde53eb5cb53e55aaa45c1405a4b0fea
 URL:		https://www.zope.dev/
 %if %{with python2}
 BuildRequires:	python >= 1:2.7
@@ -24,17 +25,23 @@ BuildRequires:	python-setuptools
 BuildRequires:	python-zope.component >= 4.0.1
 BuildRequires:	python-zope.configuration
 BuildRequires:	python-zope.copy >= 4.0
+BuildRequires:	python-zope.interface >= 4.0.2
+BuildRequires:	python-zope.proxy >= 4.0.1
+BuildRequires:	python-zope.schema >= 4.2.2
 BuildRequires:	python-zope.testrunner
 %endif
 %endif
 %if %{with python3}
-BuildRequires:	python3 >= 1:3.4
-BuildRequires:	python3-devel >= 1:3.4
+BuildRequires:	python3 >= 1:3.5
+BuildRequires:	python3-devel >= 1:3.5
 BuildRequires:	python3-setuptools
 %if %{with tests}
 BuildRequires:	python3-zope.component >= 4.0.1
 BuildRequires:	python3-zope.configuration
 BuildRequires:	python3-zope.copy >= 4.0
+BuildRequires:	python3-zope.interface >= 4.0.2
+BuildRequires:	python3-zope.proxy >= 4.0.1
+BuildRequires:	python3-zope.schema >= 4.2.2
 BuildRequires:	python3-zope.testrunner
 %endif
 %endif
@@ -60,7 +67,7 @@ strukturalne, określane przez atrybuty __name__ i __parent__.
 Summary:	Zope location module
 Summary(pl.UTF-8):	Moduł Zope location
 Group:		Libraries/Python
-Requires:	python3-modules >= 1:3.4
+Requires:	python3-modules >= 1:3.5
 
 %description -n python3-%{module}
 In Zope, "locations" are special objects that have a structural

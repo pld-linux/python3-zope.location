@@ -11,6 +11,7 @@ Version:	5.1
 Release:	1
 License:	ZPL v2.1
 Group:		Libraries/Python
+#Source0Download: https://pypi.org/simple/zope-location/
 Source0:	https://files.pythonhosted.org/packages/source/z/zope.location/zope_location-%{version}.tar.gz
 # Source0-md5:	9f25225ed1cd679f5521fc83140b9537
 URL:		https://www.zope.dev/
@@ -30,6 +31,8 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with doc}
 BuildRequires:	python3-repoze.sphinx.autointerface
+# already installed package due to package namespace issues (required for "_modules" docs subdir)
+BuildRequires:	python3-zope.location
 BuildRequires:	sphinx-pdg-3
 %endif
 Requires:	python3-modules >= 1:3.9
@@ -92,5 +95,5 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with doc}
 %files apidocs
 %defattr(644,root,root,755)
-%doc docs/_build/html/{_static,*.html,*.js}
+%doc docs/_build/html/{_modules,_static,*.html,*.js}
 %endif
